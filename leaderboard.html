@@ -23,9 +23,11 @@
 <template name="leaderboard">
   <div class="leaderboard">
     <table id="board">
-    {{#each players}}
-      {{> player}}
-    {{/each}}
+      <tbody>
+        {{#each players}}
+          {{> player}}
+        {{/each}}
+      </tbody>
     </table>
   </div>
 </template>
