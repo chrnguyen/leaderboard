@@ -1,0 +1,99 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    margin: 50px 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#symptom-error{
+	color: #901;
+}
+
+#board{
+	width: 100%;
+}
+
+#player_name{
+	width: 70%;
+	font-size: 1em;
+	margin-right: 1em;
+}
+
+#add_button{
+  padding-left:5px;
+	padding-right: 5px;
+  background:#ccc;
+  color:#000;
+  font-size: 1em;
+  font-weight:200;
+  border:none;
+  height:1.6em;
+	width: 20%;
+}
+
+tr{
+	width: 100%;
+}
+
+.player {
+    cursor: pointer;
+    padding: 5px;
+		width: 100%;
+}
+
+.player .name {
+		width: 80%;
+    font-size: 1.5em;
+}
+
+.player .score {
+		width: 20%;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #777;
+}
+
+.minus {
+    color: #901;
+		width: 10%;
+		padding-top: 20px;
+		padding-bottom: 20px;
+}
+
+.add {
+    color: #2a3;
+		width: 10%;
+		
+}
+
+.player.selected {
+    background-color: #ccc;
+}
+
+.player.selected .score {
+    color: black;
+}
+
+.details, .none {
+    font-weight: bold;
+    font-size: 2em;
+    border-style: dashed none none none;
+    border-color: #ccc;
+    border-width: 4px;
+    margin: 50px 10px;
+    padding: 10px 0px;
+}
+
+.none {
+    color: #777;
+}
+
+.inc {
+  cursor: pointer;
+}

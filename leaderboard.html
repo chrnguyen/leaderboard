@@ -1,0 +1,45 @@
+<head>
+  <title>Leaderboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+
+<body>
+  <div id="outer">
+		{{> add_player}}
+    {{> leaderboard}}
+  </div>
+</body>
+
+<template name="add_player">
+	<input id="player_name" type="text" />
+  <input id="add_button" type="button" class="add" value="Add person" />
+  {{#if validationerror}}
+    <div id="symptom-error">
+      {{validationerror}}
+    </div>
+  {{/if}}
+</template>
+
+<template name="leaderboard">
+  <div class="leaderboard">
+		<table id="board">
+    {{#each players}}
+      {{> player}}
+    {{/each}}
+		</table>
+  </div>
+</template>
+
+<template name="player">
+  <tr class="player {{selected}}">
+    <td class="name">{{name}}</td>
+    <td class="score">{{score}}</td>
+  </tr>
+	{{#if if_selected}}
+		<tr>
+			<td class="minus">- whoops</td>
+			<td class="add">+ add drank</td>
+		</tr>
+	{{/if}}
+</template>
+
