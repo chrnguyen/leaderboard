@@ -1,17 +1,17 @@
 <head>
   <title>Leaderboard</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 
 <body>
   <div id="outer">
-		{{> add_player}}
+    {{> add_player}}
     {{> leaderboard}}
   </div>
 </body>
 
 <template name="add_player">
-	<input id="player_name" type="text" />
+  <input id="player_name" type="text" />
   <input id="add_button" type="button" class="add" value="Add person" />
   {{#if validationerror}}
     <div id="symptom-error">
@@ -22,11 +22,11 @@
 
 <template name="leaderboard">
   <div class="leaderboard">
-		<table id="board">
+    <table id="board">
     {{#each players}}
       {{> player}}
     {{/each}}
-		</table>
+    </table>
   </div>
 </template>
 
@@ -35,11 +35,11 @@
     <td class="name">{{name}}</td>
     <td class="score">{{score}}</td>
   </tr>
-	{{#if if_selected}}
-		<tr>
-			<td class="minus">- whoops</td>
-			<td class="add">+ add drank</td>
-		</tr>
-	{{/if}}
+  {{#if if_selected}}
+    <tr>
+      <td class="minus">- whoops</td>
+      <td class="add">+ add drank</td>
+    </tr>
+  {{/if}}
 </template>
 

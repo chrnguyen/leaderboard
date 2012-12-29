@@ -28,7 +28,7 @@ Validation = {
 };
 
 if (Meteor.isClient) {
-	
+
   Template.add_player.validationerror = function(){
     return Session.get("validationerror");
   };
@@ -36,8 +36,8 @@ if (Meteor.isClient) {
   Template.leaderboard.players = function () {
     return Players.find({}, {sort: {score: -1, name: 1}});
   };
-	Template.player.if_selected = function () {
-		//console.log(Session.equals("selected_player", this._id) ? true : false);
+  Template.player.if_selected = function () {
+    //console.log(Session.equals("selected_player", this._id) ? true : false);
     return Session.equals("selected_player", this._id) ? true : false;
   };
 
@@ -46,13 +46,13 @@ if (Meteor.isClient) {
   };
 
   Template.add_player.events({
-		'click input.add, keydown': function(e){
-			//console.log(e.keyIdentifier);
+    'click input.add, keydown': function(e){
+      //console.log(e.keyIdentifier);
       if(e.keyIdentifier=='Enter'||e.keyIdentifier==undefined){
         var entered_player = document.getElementById('player_name').value;
-				//console.log(entered_player);
+        //console.log(entered_player);
         if (Validation.valid_name(entered_player)){
-	        Players.insert({name: entered_player, score: 0});
+          Players.insert({name: entered_player, score: 0});
           document.getElementById('player_name').value='';
         }
       }
@@ -65,33 +65,33 @@ if (Meteor.isClient) {
     'click': function () {
       Session.set("selected_player", this._id);
     },
-		
-		'click .minus': function(){
-			Players.update(this._id,{$inc:{score:-1}});
-		},
-		
-		'click .add': function(){
-			Players.update(this._id, {$inc:{score:1}});
-	  }
-	
+
+    'click .minus': function(){
+      Players.update(this._id,{$inc:{score:-1}});
+    },
+
+    'click .add': function(){
+      Players.update(this._id, {$inc:{score:1}});
+    }
+
   });
 }
 
 // On server startup, create some players if the database is empty.
 if (Meteor.isServer) {
-	/*
-	Players.allow({
-		insert: function (userId, doc){
-			return true;
-		},
-		update: function (userId, docs, fields, modifier){
-			return true;
-		},
-		remove: function (userId, docs){
-			return false;
-		}
-	});*/
-	
+  /*
+  Players.allow({
+    insert: function (userId, doc){
+      return true;
+    },
+    update: function (userId, docs, fields, modifier){
+      return true;
+    },
+    remove: function (userId, docs){
+      return false;
+    }
+  });*/
+
   Meteor.startup(function () {
     if (Players.find().count() === 0) {
       var names = [];
